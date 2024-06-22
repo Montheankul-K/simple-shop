@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: simpleshop
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/
+    username: admin
+    password: admin
+    name: simple-shop
+  data:
+    redis:
+      url: redis://localhost:6379
+
+server:
+  error:
+    include-message: always
+  port: 8000
