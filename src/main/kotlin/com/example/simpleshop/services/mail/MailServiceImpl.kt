@@ -1,12 +1,10 @@
 package com.example.simpleshop.services.mail
 
 import com.example.simpleshop.model.KafkaProductConsume
-import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import io.github.cdimascio.dotenv.Dotenv
 import org.springframework.kafka.annotation.KafkaListener
-import org.springframework.kafka.core.reactive.ReactiveKafkaConsumerTemplate
 import org.springframework.mail.SimpleMailMessage
 import org.springframework.mail.javamail.JavaMailSender
 import org.springframework.stereotype.Service
