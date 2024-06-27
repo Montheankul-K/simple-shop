@@ -1,8 +1,8 @@
-package com.example.simpleshop.controller
+package com.example.simpleshop.controller.product
 
 import com.example.simpleshop.model.ProductRequest
 import com.example.simpleshop.model.ProductResponse
-import com.example.simpleshop.service.ProductServiceImpl
+import com.example.simpleshop.services.product.ProductServiceImpl
 import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*

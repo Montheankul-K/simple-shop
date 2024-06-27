@@ -1,4 +1,4 @@
-package com.example.simpleshop.controller
+package com.example.simpleshop.controller.product
 
 import com.example.simpleshop.model.ProductRequest
 import com.example.simpleshop.model.ProductResponse

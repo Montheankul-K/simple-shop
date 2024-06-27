@@ -14,6 +14,16 @@ services:
     ports:
       - '5432:5432'
 
+  mongo:
+    image: mongo
+    platform: linux/amd64
+    container_name: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    ports:
+      - '27017:27017'
+
   redis:
     image: redis
     platform: linux/amd64
@@ -23,6 +33,28 @@ services:
     volumes:
       - redis_data:/data
 
+  zookeeper:
+    image: wurstmeister/zookeeper
+    platform: linux/amd64
+    container_name: zookeeper
+    ports:
+      - '2181:2181'
+
+  kafka:
+    image: wurstmeister/kafka
+    platform: linux/amd64
+    container_name: kafka
+    ports:
+      - '9093:9093'
+    environment:
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://kafka:9092,OUTSIDE://localhost:9093
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      KAFKA_LISTENERS: INSIDE://0.0.0.0:9092,OUTSIDE://0.0.0.0:9093
+      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_CREATE_TOPICS: "product:1:1, order:1:1"
+    depends_on:
+      - zookeeper
+
 volumes:
   redis_data:
-  pgdata:

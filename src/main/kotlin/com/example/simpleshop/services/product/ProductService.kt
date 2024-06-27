@@ -1,4 +1,4 @@
-package com.example.simpleshop.service
+package com.example.simpleshop.services.product
 
 import com.example.simpleshop.model.Product
 import com.example.simpleshop.model.ProductRequest

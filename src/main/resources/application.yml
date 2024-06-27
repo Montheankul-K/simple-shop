@@ -7,8 +7,21 @@ spring:
     password: admin
     name: simple-shop
   data:
+    mongodb:
+      uri: mongodb://localhost:27017/simpleshop
     redis:
       url: redis://localhost:6379
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9093
+      group-id: simpleshop
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      bootstrap-servers: localhost:9093
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
 
 server:
   error:
